@@ -1,0 +1,226 @@
+.image-container-01 {
+  width: 31rem;
+  height: 372px;
+}
+
+.small-image {
+  width: 4rem;
+  margin-top: 3rem;
+}
+.Rating-point {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  .Rating-container {
+    background-color: #fffad0;
+    padding: 0.1rem;
+    padding-left: 0.5rem;
+    border-radius: 0.6rem;
+  }
+  .Rating-num {
+    font-size: 0.8rem;
+    color: grey;
+  }
+}
+.Price-point {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  .Offer {
+    font-size: 0.9rem;
+    color: rgb(241, 23, 23);
+    margin-top: 0.2rem;
+  }
+}
+.Product-description {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 42rem;
+}
+.product-container {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  .product-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    height: 34rem;
+    .addToCart {
+      width: 20rem;
+      border-radius: 20px;
+      color: #c026d3;
+    }
+  }
+  .specification-detail-container {
+    margin: -20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 1rem;
+    width: 51rem;
+    .specification-detail-heading {
+      font-weight: bold;
+      margin-bottom: 10px;
+      .specification-detail {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.8;
+        .specification-detail ul {
+            margin: 0;
+            padding: 0 1rem;
+            list-style: disc;
+          }
+          
+          .specification-detail li {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+          }
+      }
+    }
+  }
+
+  .Product-detail-container {
+    margin-top: 0rem;
+    width: 40rem;
+    margin-left: -52px;
+    .Product-detail-heading {
+      margin-top: 24px;
+      border-radius: 2px 2px 0 0;
+      background-color: #fff;
+      border: 1px solid #f0f0f0;
+      border-bottom: none;
+      padding: 12px;
+      color: #212121;
+      padding-left: 2rem;
+    }
+    .Product-detail {
+      display: flex;
+      gap: 12rem;
+      padding-top: 1.2rem;
+      padding: 2rem 2rem;
+      border: 1px solid #f0f0f0;
+    }
+  }
+  .Spec-container {
+    margin-top: 2rem;
+    margin-left: -3rem;
+    .Spec-detail-heading {
+      margin-top: 24px;
+      border-radius: 2px 2px 0 0;
+      background-color: #fff;
+      border: 1px solid #f0f0f0;
+      border-bottom: none;
+      padding: 12px;
+      color: #212121;
+      padding-left: 2rem;
+    }
+    .Spec-detail {
+      display: flex;
+      gap: 12rem;
+      padding-top: 1rem;
+      padding: 2rem 2rem;
+      border: 1px solid #f0f0f0;
+    }
+  }
+}
+
+.success-image {
+  width: 16rem;
+  margin-left: -r2em;
+}
+.tab1-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab2-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.Price-point {
+  display: flex;
+  align-items: center;
+}
+.addToCart {
+  color: red;
+}
+
+.product-content {
+  position: relative;
+}
+
+.image-container-01 {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+}
+
+.thumbnails-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.thumbnail.active {
+  border-color: #ff5722; // Highlight active thumbnail
+}
+
+.related-products {
+  padding: 3rem;
+  h4{
+    font-size: 1.8rem;
+  }
+  .related-product-container {
+    display: flex;
+    gap: 6rem;
+    .related-product-image {
+      margin-top: 2rem;
+      width: 15rem;
+      height: 250px;
+    }
+  }
+}
+
+.product-features {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1rem 1rem;
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+
+    img {
+      width: 40px;
+      height: 40px;
+      background-color: #f7f4f4;
+      border-radius: 20rem;
+    }
+
+    .feature-contents {
+      font-size: 0.6rem;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,112 @@
+.header-main{
+  position: fixed;
+  margin-left: -2rem;
+  z-index: 111;
+  width: 100%;
+
+}
+.header-container{
+  margin-top: -0.6rem;
+  width: 96rem;
+  margin-left: -2rem;
+  background-color: #0c172f;
+  padding-right: 3rem;
+  padding-top: 0.8rem;
+  top: 0;
+  left: 0;
+  box-shadow: 0 4px 2px -2px rgb(37 33 33 / 22%);
+  .header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-left: 34rem;
+  }
+  
+  .header-list {
+    align-items: center;
+    padding: 7px 12px;
+    height: 38px;
+    margin-left: 15px;
+    background: transparent;
+    border-radius: 100px;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 150%;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+   .header-lists {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+    color: white;
+    width: 15rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  // .header-list:hover {
+  //   transform: translateY(-3px);
+  //   color: #c026d3;
+  // }
+  
+  .header-list::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    // background-color: #c026d3;
+    transition: width 0.3s ease;
+  }
+  
+  .header-list:hover::after {
+    width: 100%;
+  }
+  
+  .user-icon {
+    background: url('path_to_icon_image') no-repeat center center;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+  }
+  img{
+    width: 5.2rem;
+    margin-top: -0.5rem;
+  }
+}
+.header-list {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    font-size: 1rem;
+   &:active{
+    color:#c026d3;
+   }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   bottom: -5px; 
+    //   left: 0;
+    //   width: 0%;
+    //   height: 2px;
+    //   background-color: #c026d3; 
+    //   transition: width 0.3s ease;
+    // }
+  
+    // &:hover::after {
+    //   width: 100%; 
+    // }
+  }
+  
