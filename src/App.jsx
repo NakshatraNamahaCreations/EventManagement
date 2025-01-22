@@ -11,15 +11,22 @@ import Loading from "./components/Loading";
 import { Box } from "@mui/material";
 import ScrollToTop from "./utils/ScrollToTop";
 import { useSelector } from "react-redux";
-import useReactFontLoader from 'react-font-loader';
+import useReactFontLoader from "react-font-loader";
 import FeaturedProduct from "./pages/Products/FeaturedProduct";
 import Account from "./pages/Account";
+import LoginWithMobile from "./pages/Login/component/LoginWithMobile";
+import Profile from "./pages/Account/components/Profile";
+// import LoginMobile from "./pages/LoginMobile";
 
 // Lazy-loaded components
 const Category = lazy(() => import("./pages/Category"));
-const SingleCategory = lazy(() => import("./pages/Category/components/SingleCategory"));
+const SingleCategory = lazy(() =>
+  import("./pages/Category/components/SingleCategory")
+);
 const SingleProduct = lazy(() => import("./pages/Products/SingleProducts"));
-const SingleVendor = lazy(() => import("./pages/Vendors/components/SingleVendor"));
+const SingleVendor = lazy(() =>
+  import("./pages/Vendors/components/SingleVendor")
+);
 const Signup = lazy(() => import("./pages/Signup"));
 const Login = lazy(() => import("./pages/Login"));
 const Bookings = lazy(() => import("./pages/Bookings"));
@@ -37,11 +44,10 @@ const PublicRoute = ({ isAuthenticated, children }) => {
 
 function App() {
   const loading = useSelector((state) => state.loader.loading);
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); 
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   useReactFontLoader({
     url: "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap",
   });
-
 
   return (
     <BrowserRouter>
@@ -57,7 +63,7 @@ function App() {
               path="/signup"
               element={
                 // <PublicRoute isAuthenticated={isAuthenticated}>
-                  <Signup />
+                <Signup />
                 // </PublicRoute>
               }
             />
@@ -65,7 +71,15 @@ function App() {
               path="/login"
               element={
                 // <PublicRoute isAuthenticated={isAuthenticated}>
-                  <Login />
+                <Login />
+                // </PublicRoute>
+              }
+            />
+            <Route
+              path="/loginMobile"
+              element={
+                // <PublicRoute isAuthenticated={isAuthenticated}>
+                <LoginWithMobile />
                 // </PublicRoute>
               }
             />
@@ -144,12 +158,20 @@ function App() {
                 </PrivateRoute>
               }
             />
-              <Route
+            <Route
               path="/account"
               element={
-                // <PrivateRoute isAuthenticated={isAuthenticated}>
+                <PrivateRoute isAuthenticated={isAuthenticated}>
                   <Account />
-                // </PrivateRoute>
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute isAuthenticated={isAuthenticated}>
+                  <Profile />
+                </PrivateRoute>
               }
             />
           </Routes>

@@ -1,58 +1,71 @@
 import React, { useEffect, useState } from "react";
-import Editing from '../../assets/editing.png';
+import Editing from "../../assets/editing.png";
 import "./styles.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import authService from "../../api/ApiService";
-
+import { logout } from "../../redux/slice/authSlice";
+import { Link, useNavigate } from "react-router-dom";
+import { Box } from "@mui/material";
 
 const Account = () => {
   const [userDetails, setUserDetails] = useState([]);
-  const userId = useSelector((state) => state.auth.userId);
+  const userId = sessionStorage.getItem("userId");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  console.log("the accound section", userId);
+  console.log("the acc ", userId);
 
-  const getAccount = async() => {
+  const getAccount = async () => {
     const res = await authService.getUserProfile(userId);
-    console.log(res);
-    
-  }
-  
+    console.log("the getdetails", res.data);
+    setUserDetails(res.data);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+    console.log("naviga");
+  };
+
   useEffect(() => {
     getAccount();
-  },[userId])
-  
+  }, [userId]);
+
   return (
-    <div className="account-page">
+    <Box className="account-page">
       <header className="header">
         <h1>My Account</h1>
-        <div className="icons">
+        <Box className="icons">
           <i className="fa fa-calendar" title="Calendar"></i>
           <i className="fa fa-bell" title="Notifications"></i>
-        </div>
+        </Box>
       </header>
-      <div className="profile-section">
-        <div className="profile-info">
+      <Box className="profile-section">
+        <Box className="profile-info">
           <img
             src="https://walnuteducation.com/static/core/images/icon-profile.png"
             alt="Profile"
             className="profile-image"
           />
-          <div className="user-details">
-            <h2>Naveen</h2>
-            <p>claire.cooper@mail.com</p>
-          </div>
-        </div>
+          <Box className="user-details">
+            <h2>{userDetails.username}</h2>
+            <p>{userDetails.email}</p>
+          </Box>
+        </Box>
         <button className="edit-btn">
-          <img src={Editing} alt="Not Found"/>
+          <img src={Editing} alt="Not Found" />
         </button>
-      </div>
-      <div className="options">
+      </Box>
+      <Box className="options">
         <h3>General</h3>
+
         <ul>
-          <li>
-            <i className="fa fa-ticket"></i> Account
-            <i className="fa fa-chevron-right"></i>
-          </li>
+          <Link to={"/profile"}>
+            <li>
+              <i className="fa fa-ticket"></i> Account
+              <i className="fa fa-chevron-right"></i>
+            </li>
+          </Link>
           <li>
             <i className="fa fa-heart"></i> My Tickets
             <i className="fa fa-chevron-right"></i>
@@ -73,9 +86,13 @@ const Account = () => {
             <i className="fa fa-bell"></i> Terms & Conditions
             <i className="fa fa-chevron-right"></i>
           </li>
+          <li onClick={handleLogout}>
+            <i className="fa fa-bell"></i> Logout
+            <i className="fa fa-chevron-right"></i>
+          </li>
         </ul>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
